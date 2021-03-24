@@ -30,7 +30,7 @@ import imagemin from 'gulp-imagemin'
 const mozjpeg = require('imagemin-mozjpeg') // Imagen requiere varios plugins en función del formato de la imagen
 
 // Browser sync
-import {init as server, stream, reload} from 'browser-sync'
+import { init as server, stream, reload } from 'browser-sync'
 
 // Plumber
 import plumber from 'gulp-plumber'
@@ -78,56 +78,56 @@ gulp.task('babel', () => {
         .pipe(concat('scripts-min.js'))
         .pipe(babel())
         .pipe(terser())
-       
+
         .pipe(gulp.dest('./public/js'))
 })
 
 // Tarea Pug
 gulp.task('views', () => {
     return gulp.src('./src/views/pages/*.pug')
-    .pipe(plumber())
-    .pipe(pug({
-        pretty: production ? false : true
-    }))
-    .pipe(cacheBust({
-        type: 'timestamp'
-    }))
-    .pipe(gulp.dest('./public'))
+        .pipe(plumber())
+        .pipe(pug({
+            pretty: production ? false : true
+        }))
+        .pipe(cacheBust({
+            type: 'timestamp'
+        }))
+        .pipe(gulp.dest('./public'))
 })
 
 // Tarea SASS
 gulp.task('sass', () => {
     return gulp.src('./src/scss/styles.scss')
-    .pipe(plumber())
-    .pipe(sass({
-        outputStyle: 'compressed'
-    }))
-    .pipe(postcss(cssPlugins))
-    .pipe(gulp.dest('./public/css'))
-    .pipe(stream())
+        .pipe(plumber())
+        .pipe(sass({
+            outputStyle: 'compressed'
+        }))
+        .pipe(postcss(cssPlugins))
+        .pipe(gulp.dest('./public/css'))
+        .pipe(stream())
 })
 
 // Tarea limpiar el CSS que no se utiliza (al finlal del proyecto)
 gulp.task('clean', () => {
     return gulp.src('./public/css/styles.css')
-    .pipe(plumber())
-    .pipe(clean({
-        content: ['./public/*.html']
-    }))
-    .pipe(gulp.dest('./public/css'))
+        .pipe(plumber())
+        .pipe(clean({
+            content: ['./public/*.html']
+        }))
+        .pipe(gulp.dest('./public/css'))
 })
 
 // Tarea comprimir imágenes
 gulp.task('imgmin', () => {
     return gulp.src('./src/images/*')
-    .pipe(plumber())
-    .pipe(imagemin([
-        // imagemin.gifsicle({interlaced: true}),
-       // imagemin.mozjpeg({quality: 30, progressive: true}),
-        // imagemin.optipng({optimizationLevel: 1})
-       mozjpeg({quality: 30, progressive: true}),
-    ]))
-    .pipe(gulp.dest('./public/images'))
+        .pipe(plumber())
+        .pipe(imagemin([
+            // imagemin.gifsicle({interlaced: true}),
+            // imagemin.mozjpeg({quality: 30, progressive: true}),
+            // imagemin.optipng({optimizationLevel: 1})
+            mozjpeg({ quality: 30, progressive: true }),
+        ]))
+        .pipe(gulp.dest('./public/images'))
 })
 
 
@@ -138,9 +138,9 @@ gulp.task('default', () => {
     server({
         server: './public'
     })
-    // gulp.watch('./src/*.html', gulp.series('html-min')).on('change', reload)
+    gulp.watch('./src/*.html', gulp.series('html-min')).on('change', reload)
     // gulp.watch('./src/css/*.css', gulp.series('styles'))
-    gulp.watch('./src/views/pages/**/*.pug', gulp.series('views')).on('change', reload)
+    // gulp.watch('./src/views/pages/**/*.pug', gulp.series('views')).on('change', reload)
     gulp.watch('./src/scss/**/*.scss', gulp.series('sass'))
     gulp.watch('./src/js/*.js', gulp.series('babel')).on('change', reload)
 })

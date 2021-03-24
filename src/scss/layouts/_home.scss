@@ -1,0 +1,474 @@
+.wrap {
+  @include laptop {
+    max-width: 1600px;
+  }
+}
+
+/* Section Hero Slider
+--------------------------*/
+.slider {
+  position: relative;
+  padding: 100px 0;
+
+  @include tablet {
+    padding: 130px 0 100px;
+  }
+  &__content {
+    max-width: 90%;
+    margin: 0 auto;
+    position: relative;
+
+    @include laptop {
+      max-width: 80%;
+      display: flex;
+    }
+  }
+  &__image {
+    @include laptop {
+      flex-basis: 160%;
+    }
+  }
+  &__description {
+    font-size: 22px;
+    font-weight: 300;
+    color: #fff;
+    @include laptop {
+      flex-basis: 80%;
+      padding: 60px;
+    }
+    p {
+      margin: 30px 0;
+    }
+  }
+
+  &__title {
+    font-size: 45px;
+    color: #fff;
+    position: absolute;
+    z-index: 1;
+    top: -50px;
+    right: 0;
+    font-family: $font-primary;
+
+    @include laptop {
+      font-size: 85px;
+    }
+  }
+
+  &__icono {
+    display: none;
+
+    @include laptop {
+      display: block;
+      position: absolute;
+      bottom: 0;
+      right: 50px;
+      &--pedido {
+        bottom: 130px;
+      }
+    }
+  }
+}
+
+/* Section Carta
+--------------------------*/
+
+.carta {
+  padding: 80px 0;
+}
+.carta-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(45%, 1fr));
+  align-items: end;
+  gap: 3rem;
+
+  @include laptop {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    justify-content: center;
+    align-items: end;
+  }
+
+  &__item {
+    justify-self: start;
+    margin: 0 16px;
+
+    @include laptop {
+      justify-self: center;
+      margin: 0;
+    }
+    img {
+      display: block;
+      margin-bottom: 12px;
+    }
+    p {
+      font-size: 18px;
+      font-family: $font-primary;
+      color: #fff;
+      position: relative;
+      padding-left: 4px;
+      padding-right: 4px;
+      transition: all 0.3s ease;
+
+      &:hover {
+        background-color: $primary;
+      }
+    }
+  }
+  &__line {
+    display: block;
+    height: 2px;
+    width: 40px;
+    background-color: $primary;
+    margin-top: 8px;
+  }
+}
+
+/* Section Servicios
+---------------------------------------*/
+.servicios {
+  padding: 60px 15px;
+  @include laptop {
+    padding: 80px;
+  }
+
+  .wrap {
+    @include laptop {
+      display: grid;
+      grid-template-columns: 65% 35%;
+      align-content: start;
+      gap: 2rem;
+    }
+  }
+  &__cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(6, 100px);
+    // align-content: start;
+    gap: 2.6rem;
+    margin-bottom: 60px;
+  }
+  &__card {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.5 ease-in;
+
+    &:hover {
+      img {
+        transform: scale(1.15);
+      }
+      .title:before {
+        opacity: 1;
+      }
+    }
+
+    img {
+      height: 100%;
+      transition: all 0.3s ease;
+    }
+
+    &:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: block;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.15);
+      z-index: 2;
+      transition: 0.5s;
+    }
+
+    &__content {
+      position: absolute;
+      bottom: 30px;
+      left: 24px;
+      color: white;
+      z-index: 3;
+      &__title {
+        font-size: 24px;
+        font-family: $font-primary;
+        text-transform: uppercase;
+        margin-bottom: 24px;
+        position: relative;
+        z-index: 3;
+        @include laptop {
+          font-size: 40px;
+        }
+
+        &:before {
+          content: "";
+          position: absolute;
+          left: -15%;
+          display: block;
+          width: 105%;
+          height: 100%;
+          transform: rotate(-1deg);
+          background: $primary;
+          z-index: -1;
+          opacity: 0;
+        }
+      }
+      &__desc {
+        font-size: 16px;
+        margin-bottom: 0;
+        font-weight: 300;
+        line-height: 1.2;
+
+        @include laptop {
+          font-size: 20px;
+        }
+      }
+    }
+
+    &:nth-child(1) {
+      grid-column: 1;
+      grid-row: 2/6;
+
+      img {
+        object-fit: cover;
+        height: 100%;
+        transition: all 0.3s ease;
+      }
+    }
+    &:nth-child(2) {
+      grid-column: 2;
+      grid-row: 1/4;
+      img {
+        object-fit: cover;
+      }
+    }
+    &:nth-child(3) {
+      grid-column: 2;
+      grid-row: 4/7;
+      img {
+        object-fit: cover;
+      }
+    }
+  }
+}
+
+/* Section Newsletter
+--------------------------*/
+
+.newsletter {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  &__content {
+    max-width: 90%;
+    &__inner {
+      background-image: url("../assets/img/bg-newsletter.png");
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-size: cover;
+      padding: 32px 24px;
+      color: #fff;
+      margin-bottom: 24px;
+      position: relative;
+    }
+  }
+  &__title {
+    font-size: 40px;
+    font-family: $font-primary;
+  }
+  &__description {
+    font-family: "Sarabun", sans-serif;
+    font-weight: 300;
+  }
+  &__form {
+    input[type="email"] {
+      background-color: transparent;
+      border: 0;
+      outline: none;
+      border-bottom: 1px solid #fff;
+      font-family: "Sarabun", sans-serif;
+      width: 100%;
+      padding: 15px 0;
+
+      @include laptop {
+        width: 70%;
+      }
+    }
+    input[type="submit"] {
+      background-color: transparent;
+      outline: none;
+      border: 1px solid #fff;
+      color: #fff;
+      font-size: 18px;
+      font-family: $font-primary;
+      padding: 4px 32px;
+
+      display: block;
+      width: 100%;
+      margin-top: 32px;
+
+      @include laptop {
+        margin-left: 16px;
+        display: inline-block;
+        width: auto;
+        margin-top: 0;
+      }
+    }
+    ::placeholder {
+      color: #fff;
+    }
+  }
+  &__privacidad {
+    margin-top: 32px;
+    font-family: "Sarabun", sans-serif;
+    a {
+      border-bottom: 1px solid #fff;
+    }
+  }
+  &__icons {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+
+    li {
+      display: flex;
+      align-items: center;
+    }
+    img {
+      margin-right: 8px;
+      max-width: 24px;
+    }
+    span {
+      color: $secondary;
+    }
+  }
+  &__descuento {
+    position: absolute;
+    top: 0;
+    right: 0;
+    &::before {
+      content: "20%";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) rotate(45deg);
+      z-index: 2;
+      color: $secondary;
+      font-size: 22px;
+      font-weight: bold;
+    }
+
+    &::after {
+      content: url("../assets/img/icono-descuento.png");
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+}
+
+/* Section Instagram
+--------------------------*/
+.instagram {
+  @include laptop {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  &__card {
+    height: 250px;
+    position: relative;
+
+    @include laptop {
+      height: 480px;
+    }
+
+    &:hover {
+      &:before {
+        opacity: 1;
+      }
+      .info {
+        opacity: 1;
+      }
+    }
+    &:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: block;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 2;
+      transition: 0.5s;
+      opacity: 0;
+    }
+    &__image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+    &__social {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+      width: 100%;
+      z-index: 3;
+      color: white;
+      opacity: 0;
+      transition: 0.5s;
+
+      &__like,
+      &__comment {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        margin-right: 16px;
+
+        img {
+          max-width: 32px;
+        }
+        span {
+          margin-left: 8px;
+        }
+      }
+    }
+  }
+}
+
+/* Section Texto Movimiento
+--------------------------*/
+
+.texto {
+  padding: 80px 0;
+  color: #737163;
+  .texto__cta {
+    font-size: 40px;
+    font-weight: "Sarabu", sans-serif;
+    font-weight: 200;
+    font-style: italic;
+    display: inline-block;
+    white-space: nowrap;
+    animation: floatText 25s infinite linear;
+    padding-left: 75%;
+
+    @include laptop {
+      font-size: 80px;
+    }
+    &:hover {
+      animation-play-state: paused;
+    }
+  }
+}
+
+@keyframes floatText {
+  to {
+    transform: translateX(-100%);
+  }
+}

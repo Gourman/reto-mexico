@@ -1,0 +1,86 @@
+.footer {
+  background-color: $secondary;
+  padding: 50px 0;
+
+  .wrap {
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-items: center;
+    align-items: start;
+
+    @include laptop {
+      grid-template-columns: 25% 50% 25%;
+    }
+  }
+
+  &__left {
+    margin-bottom: 24px;
+    @include laptop {
+      margin-bottom: 0;
+    }
+    img {
+      margin-bottom: 48px;
+    }
+    p {
+      color: #fff;
+      margin-bottom: 0;
+      text-align: center;
+
+      @include laptop {
+        text-align: left;
+      }
+    }
+  }
+  &__center {
+    width: 100%;
+
+    ul {
+      display: flex;
+      flex-direction: column;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 18px;
+      margin-bottom: 32px;
+      color: #fff;
+
+      @include laptop {
+        flex-direction: row;
+      }
+    }
+    &__terminos {
+      li {
+        color: rgba(255, 255, 255, 0.5);
+        font-size: 14px;
+      }
+
+      a {
+        color: rgba(255, 255, 255, 0.5);
+      }
+    }
+  }
+
+  &__right {
+    justify-self: end;
+  }
+
+  &__right {
+    margin-right: 0;
+    margin: 0 auto;
+    @include laptop {
+      margin-right: 80px;
+    }
+    .btn {
+      margin-bottom: 24px;
+    }
+
+    ul.social-media {
+      display: flex;
+      justify-content: center;
+      li {
+        margin-right: 16px;
+        font-size: 32px;
+      }
+    }
+  }
+}
