@@ -28,6 +28,8 @@ import cacheBust from 'gulp-cache-bust'
 // Optimizacion imágenes (Solo se hace al final del desarrollo)
 import imagemin from 'gulp-imagemin'
 const mozjpeg = require('imagemin-mozjpeg') // Imagen requiere varios plugins en función del formato de la imagen
+const imageminJpegtran = require('imagemin-jpegtran');
+const imageminPngquant = require('imagemin-pngquant');
 
 // Browser sync
 import { init as server, stream, reload } from 'browser-sync'
@@ -55,6 +57,9 @@ gulp.task('html-min', () => {
         .pipe(htmlmin({
             collapseWhitespace: true,
             removeComments: true
+        }))
+        .pipe(cacheBust({
+            type: 'timestamp'
         }))
         .pipe(gulp.dest('./public'))
 })
@@ -119,15 +124,19 @@ gulp.task('clean', () => {
 
 // Tarea comprimir imágenes
 gulp.task('imgmin', () => {
-    return gulp.src('./src/images/*')
+    return gulp.src('./src/assets/img/*')
         .pipe(plumber())
         .pipe(imagemin([
             // imagemin.gifsicle({interlaced: true}),
             // imagemin.mozjpeg({quality: 30, progressive: true}),
-            // imagemin.optipng({optimizationLevel: 1})
+            // imagemin.optipng({optimizationLevel: 1}),
+            imageminJpegtran(),
+            imageminPngquant({
+                quality: [0.6, 0.8]
+            }),
             mozjpeg({ quality: 30, progressive: true }),
         ]))
-        .pipe(gulp.dest('./public/images'))
+        .pipe(gulp.dest('./public/assets/img'))
 })
 
 

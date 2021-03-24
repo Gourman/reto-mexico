@@ -1,5 +1,5 @@
 {
-  "name": "reto mexico",
+  "name": "git ",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -26,9 +26,11 @@
     "gulp-purgecss": "^3.0.0",
     "gulp-sass": "^4.1.0",
     "gulp-terser": "^1.4.0",
+    "imagemin-jpegtran": "^7.0.0",
     "imagemin-mozjpeg": "^9.0.0"
   },
   "dependencies": {
-    "gulp-htmlmin": "^5.0.1"
+    "gulp-htmlmin": "^5.0.1",
+    "imagemin-pngquant": "^9.0.2"
   }
 }
