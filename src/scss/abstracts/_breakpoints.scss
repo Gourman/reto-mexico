@@ -4,12 +4,12 @@
 $mobile: 576px;
 // $tablet: 361px;
 $tablet: 768px;
-// $laptop: 1024px;
-$laptop: 1200px;
+$laptop: 1024px;
+//$laptop: 1200px;
 $desktop: 1400px;
 
 @mixin mobile {
-  @media screen and (max-width: $mobile) {
+  @media screen and (min-width: $mobile) {
     @content;
   }
 }

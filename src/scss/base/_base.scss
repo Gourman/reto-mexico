@@ -9,17 +9,25 @@ html {
 
 body {
   min-height: 100vh;
-  background: linear-gradient(
-    to bottom,
-    #737163 0%,
-    hsl(52, 7%, 62%) 51%,
-    #fffbdd 85%
-  );
-
-  // background: #737163;
+  // background: linear-gradient(
+  //   to bottom,
+  //   #737163 0%,
+  //   hsl(52, 7%, 62%) 51%,
+  //   #fffbdd 85%
+  // );
+  background-color: #737163;
   transition: all 500ms;
   will-change: background;
 }
+
+// .bg-active {
+//   background: linear-gradient(
+//     to bottom,
+//     #737163 0%,
+//     hsl(52, 7%, 62%) 51%,
+//     #fffbdd 85%
+//   );
+// }
 
 .wrap {
   max-width: 1600px;

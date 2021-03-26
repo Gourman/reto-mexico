@@ -13,16 +13,21 @@
         <link rel="preconnect" href="https://fonts.gstatic.com">
         <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,400;0,500;1,300&display=swap" rel="stylesheet" />
         <link rel="stylesheet" href="css/styles.css">
+
     </head>
 
     <body>
 
         <nav class="main-menu">
+            <a href="#" class="toggle-button">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </a>
             <ul class="menu">
                 <li class="menu__item"><a class="menu__link" href="#">Haz tu pedido</a></li>
                 <li class="menu__item"><a class="menu__link" href="#">Nuestra carta</a></li>
                 <li class="menu__item"><a class="menu__link" href="#">Nuestros menús</a></li>
-                <!-- <li class="menu__item"><a class="menu__link menu__logo" href="">Mexico</a></li> -->
                 <li class="menu__item centered-logo">
                     <a href="/">
                         <img src="./assets/img/LOGO MEXICO.png" alt="CENTERED LOGO">
@@ -31,12 +36,12 @@
                 <li class="menu__item"><a class="menu__link" href="#">Conócenos</a></li>
                 <li class="menu__item"><a class="menu__link" href="#">Dónde estamos</a></li>
                 <li class="menu__item"><a class="menu__link" href="#">Reserva tu mesa</a></li>
-                <!-- <li class="menu__toggle"><i class="fas fa-bars"></i></li> -->
+
             </ul>
         </nav>
 
-        <main>
-            <section class="slider" id="slider">
+        <main class="container">
+            <section class="slider panel" data-color="#737163">
                 <div class="wrap">
                     <div class="slider__content">
                         <div class="slider__image">
@@ -57,7 +62,7 @@
                     <img class="slider__icono slider__icono--mesa" src="./assets/img/icono-reserva-mesa.png" alt="reserva tu mesa">
                 </div>
             </section>
-            <section class="carta" id="carta">
+            <section class="carta panel" data-color="hsl(52, 7%, 62%)">
                 <div class="wrap">
                     <ul class="carta-list">
                         <li class="carta-list__item">
@@ -104,7 +109,7 @@
 
                 </div>
             </section>
-            <section class="servicios" id="servicios">
+            <section class="servicios panel" data-color="#b3b09b">
                 <div class="wrap">
                     <div class="servicios__cards">
                         <div class="servicios__card">
@@ -141,7 +146,7 @@
                                     <input type="submit" value="Enviar">
                                     <div class="newsletter__privacidad">
                                         <input type="checkbox" name="" id="">
-                                        <span>Acepto todas las <a>Políticas de privacidad</a></span>
+                                        <label>Acepto todas las <a>Políticas de privacidad</a></label>
                                     </div>
                                 </form>
                                 <div class="newsletter__descuento">20%</div>
@@ -158,12 +163,12 @@
 
                 </div>
             </section>
-            <div class="texto" id="texto">
+            <div class="texto panel" data-color="#e6e2c7">
                 <span class="texto__cta">
                     ABIERTO TODOS LOS DÍAS DE LA SEMANA. REALIZA TU PEDIDO ONLINE.
                 </span>
             </div>
-            <section class="instagram" id="instagram">
+            <section class="instagram panel" data-color="#fffbdd">
                 <div class="instagram__card">
                     <img class="instagram__card__image" src="assets/img/instagram1.JPG" alt="">
                     <div class="instagram__card__social info">
@@ -256,6 +261,13 @@
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
             integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+            crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollTrigger/1.0.5/ScrollTrigger.min.js"
+            integrity="sha512-m/n857VfrPYUcRvzCfqfrC9aMT06TQA2V0DcX/Ovovrhswa3038FfYmHlB0l/ZMukVyKWmiwZI4Pnnd7v3FwFQ=="
+            crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/ScrollTrigger.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/gsap.min.js"
+            integrity="sha512-cdV6j5t5o24hkSciVrb8Ki6FveC2SgwGfLE31+ZQRHAeSRxYhAQskLkq3dLm8ZcWe1N3vBOEYmmbhzf7NTtFFQ=="
             crossorigin="anonymous"></script>
         <script src="./js/scripts-min.js"></script>
 

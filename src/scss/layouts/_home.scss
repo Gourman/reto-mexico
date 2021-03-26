@@ -78,15 +78,12 @@
 }
 .carta-list {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(45%, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   align-items: end;
   gap: 3rem;
 
   @include laptop {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     justify-content: center;
-    align-items: end;
   }
 
   &__item {
@@ -320,6 +317,7 @@
   &__privacidad {
     margin-top: 32px;
     font-family: "Sarabun", sans-serif;
+    position: relative;
     a {
       border-bottom: 1px solid #fff;
     }
