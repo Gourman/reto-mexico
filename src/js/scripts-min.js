@@ -41,10 +41,10 @@ gsap.utils.toArray(".panel").forEach(function (elem) {
         trigger: elem,
         start: 'top 50%',
         end: 'bottom 50%',
-        onEnter: () => gsap.to('main', { backgroundColor: color }),
-        onLeave: () => gsap.to('main', { backgroundColor: 'white' }),
-        onLeaveBack: () => gsap.to('main', { backgroundColor: 'white' }),
-        onEnterBack: () => gsap.to('main', { backgroundColor: color }),
+        onEnter: () => gsap.to('body', { backgroundColor: color }),
+        onLeave: () => gsap.to('body', { backgroundColor: color }),
+        onLeaveBack: () => gsap.to('body', { backgroundColor: color }),
+        onEnterBack: () => gsap.to('body', { backgroundColor: color }),
         // markers: true
     });
 
